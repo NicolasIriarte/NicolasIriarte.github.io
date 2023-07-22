@@ -7,3 +7,14 @@ add-remote-theme:
 pull-theme:
     #!/bin/bash
     git subtree pull --prefix={{justfile_directory()}}/themes/hugo-theme-bootstrap theme master
+
+# Add the public gitlab repository. https://gitlab.com/NicolasIriarte/bytewise
+add-remote-public:
+    #!/bin/bash
+    git remote add public git@gitlab.com:NicolasIriarte/bytewise.git
+
+# Push to remote repository.
+publish:
+    #!/bin/bash
+    git push public main
+
