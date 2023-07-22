@@ -1,0 +1,18 @@
+name: Nicolás Iriarte
+# avatar: images/profile.png # Avatar image. Default to "images/profile.webp".
+bio: 'Nicolas Iriarte, Software engenieer, doing a master degree.'
+company: <a href="https://www.invap.com.ar/" target="_blank" rel="noopener noreferrer">INVAP S.E</a> # HTML markup are supported, such as: <a href="https://example.com" target="_blank" rel="noopener noreferrer">Company</a>.
+location: Argentina # HTML markup are supported, such as: <a href='https://www.openstreetmap.org/search?query=Earth'>Earth</a>.
+# about: https://razonyang.com # The external about page. The internal about page will be used if not set.
+params: {
+  layout: default
+}
+# See https://hbs.razonyang.com/v1/en/docs/widgets/social-links/.
+social:
+  email: NicolasIriarte95@gmail.com
+  gitlab: NicolasIriarte
+  github: NicolasIriarte
+  # twitter: razonyang
+  # patreon: razonyang
+  paypal: NicolasIriarte95
+  rss: "" # Remove RSS
