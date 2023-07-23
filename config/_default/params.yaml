@@ -1,11 +1,11 @@
 mainSections:
-  - blog
+  - references
   - posts
   - news
 
 # titleSeparator: '|' # Title separator. Default to -.
 
-description: "Where Code Meets the Core: ByteWise Blog"
+description: "Where code meets the Core."
 keywords: Hugo, Bootstrap, Blog Theme
 # images:
 #   - site-feature-image.jpg
@@ -100,7 +100,7 @@ sidebar:
 
 codeBlock:
   # maxLines: 8
-  lineNos: false # true/false represents that show/hide the line numbers by default.
+  lineNos: true # true/false represents that show/hide the line numbers by default.
 
 post:
   # excerpt: description

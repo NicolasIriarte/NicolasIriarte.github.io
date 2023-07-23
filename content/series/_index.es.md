@@ -2,7 +2,7 @@
 title: 专栏
 menu:
   main:
-    parent: blog
+    parent: references
     weight: 2
     params:
       icon: <i class="fas fa-fw fa-columns"></i>

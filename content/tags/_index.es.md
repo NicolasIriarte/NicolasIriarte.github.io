@@ -2,7 +2,7 @@
 title: 标签
 menu:
   main:
-    parent: blog
+    parent: references
     weight: 4
     params:
       icon: <i class="fas fa-fw fa-tags"></i>
