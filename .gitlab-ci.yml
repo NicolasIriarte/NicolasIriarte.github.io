@@ -8,11 +8,11 @@ default:
     - apk add --update --no-cache git go npm
     - npm install
 
-test:
-  script:
-    - hugo --gc --minify
-  rules:
-    - if: $CI_COMMIT_REF_NAME != $CI_DEFAULT_BRANCH
+# test:
+#   script:
+#     - hugo --gc --minify
+#   rules:
+#     - if: $CI_COMMIT_REF_NAME != $CI_DEFAULT_BRANCH
 
 pages:
   script:
@@ -21,4 +21,8 @@ pages:
     paths:
       - public
   rules:
-    - if: $CI_COMMIT_REF_NAME == $CI_DEFAULT_BRANCH
+    - if: '$CI_PIPELINE_SOURCE == "web"'
+      when: always
+    - if: '$CI_PIPELINE_SOURCE == "schedule"'
+      when: always
+    - when: never
