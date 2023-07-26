@@ -15,7 +15,7 @@ enableRobotsTXT: true
 enableEmoji: true
 pygmentsUseClasses: true
 # googleAnalytics: G-1GLY4DDSWJ
-disqusShortname: byte-wise
+# disqusShortname: byte-wise
 
 blackfriday:
   hrefTargetBlank: true
