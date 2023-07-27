@@ -11,7 +11,7 @@ pull-theme:
 # Add the public gitlab repository. https://gitlab.com/NicolasIriarte/bytewise
 add-remote-public:
     #!/bin/bash
-    git remote add public git@gitlab.com:NicolasIriarte/bytewise.git
+    git remote add public git@github.com:NicolasIriarte/NicolasIriarte.github.io.git
 
 # Push to remote repository.
 publish:
