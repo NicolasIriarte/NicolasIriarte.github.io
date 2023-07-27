@@ -1,121 +1,49 @@
-# Hugo Theme Bootstrap Skeleton
+# ByteWise Blog
 
-The starter template for [Hugo Bootstrap Theme](https://github.com/razonyang/hugo-theme-bootstrap) that install the theme as a Hugo module.
+Welcome to ByteWise, a personal blog dedicated to exploring the realm of low-level programming, build tools, and embedded programming. Join me on this exciting journey as we unravel the secrets and intricacies of C/C++, Lua, and embedded systems.
 
-## Demo
+## Website URL
 
-| Platform         | URL                                                           |
-|------------------|---------------------------------------------------------------|
-| Netlify          | https://hbs-skeleton.netlify.app/                             |
-| GitHub Pages     | https://projects.razonyang.com/hugo-theme-bootstrap-skeleton/ |
-| Cloudflare Pages | https://hbs-skeleton.pages.dev/                               |
-| Docker image     | See also [Dockerfile](Dockerfile)                             |
+You can find the live version of this blog at [NicolasIriarte.github.io](https://NicolasIriarte.github.io/).
 
-## Usage
+## Serving Locally with HUGO
 
-Please make sure you have install the [build tools](https://hbs.razonyang.com/v1/en/docs/getting-started/prerequisites/#build-tools) prior to using this template.
+To serve this blog locally and preview the content before deployment, follow these steps:
 
-**1. Clone this repository**
+1. **Install HUGO:** Make sure you have [HUGO](https://gohugo.io/) installed on your system. If not, follow the installation guide on the HUGO website.
 
-It's recommending cloning the repo by clicking the `Use this template` button, if you're hosting your code on GitHub.
-
-You can also clone it manually.
-
-```shell
-$ git clone https://github.com/razonyang/hugo-theme-bootstrap-skeleton.git blog
-$ cd blog
-$ rm -rf .git
-$ git init -b main
-```
-
-> The `rm -rf .git` is a dangerous action, please make sure that you enter the right folder.
-
-**2. Modify the `go.mod`**
-
-Replace the following line to yours, such as `module github.com/user/repo`.
-
-```text
-module github.com/razonyang/hugo-theme-bootstrap-skeleton
-```
-
-**3. Commit and push changes to your repository**
-
-```shell
-$ git add -A
-$ git commit -m 'First commit'
-$ git remote set-url origin github.com/user/repo
-$ git push origin main
-```
-
-## Go Proxy(Optional)
-
-If you're located at China mainland without VPN, the Hugo module download may fail.
-
-There are two proxies for this: [GOPROXY.CN](https://goproxy.cn) and [GOPROXY.IO](https://goproxy.io).
+2. **Clone the Repository:** Clone this repository to your local machine using the following command:
 
 ```bash
-$ export HUGO_MODULE_PROXY=https://goproxy.cn
+git clone https://github.com/NicolasIriarte/NicolasIriarte.github.io.git
 ```
 
-> Please note that, Hugo doesn't respect the `GOPROXY` env var, please use `HUGO_MODULE_PROXY` instead.
+3. **Navigate to the Project Directory:** Enter the cloned project directory:
 
-You can also set the `module.proxy` instead of using env var.
-
-```yaml
-module:
-  proxy: https://goproxy.cn
+```bash
+cd NicolasIriarte.github.io
 ```
 
-## Server
+4. **Serve Locally:** Launch the HUGO development server to view the blog locally in your browser:
 
-**1. Install dependencies**
-
-```shell
-$ npm i
+```bash
+hugo server -D
 ```
 
-Generally, this step only needs to be performed once for each local project.
+5. **Preview in Browser:** Open your web browser and visit `http://localhost:1313` to preview the blog.
 
-**2. Start server**
+## About Me
 
-```shell
-$ hugo server
-```
+Hey there! I'm Nicolas Iriarte, the creator and author behind ByteWise. As an avid low-level programmer and embedded enthusiast, I started this blog to share my knowledge, insights, and experiences in the world of programming close to the hardware.
 
-## Upgrade theme
+I'm passionate about exploring the depths of C/C++, Lua, and the intricacies of embedded systems. My goal is to create a platform where developers, hobbyists, and enthusiasts can come together to learn and grow in their journey of building efficient and innovative software.
 
-```shell
-$ hugo mod get github.com/razonyang/hugo-theme-bootstrap@master
-$ hugo mod npm pack
-$ npm update
-$ git add go.mod go.sum package.json package-lock.json
-$ git commit -m 'Update the theme'
-```
+So, join me as we delve into the fascinating world of low-level programming, discover the power of build tools, and unlock the wonders of embedded programming. Let's embark on this adventure together!
 
-You can also replace the `master` with stable [releases](https://github.com/razonyang/hugo-theme-bootstrap/releases).
+---
 
-## Deployment
+Thank you for visiting ByteWise. Your support and feedback are greatly appreciated. If you have any questions, suggestions, or just want to say hi, feel free to reach out to me via email at [NicolasIriarte95@gmail.com](mailto:NicolasIriarte95@gmail.com) or connect with me on [LinkedIn](https://www.linkedin.com/in/iriarte-nicolas/).
 
-> The `baseURL` is very important, the CSS, JS and Sitemap require it to be set.
+Happy coding!
 
-**Please make sure you've change the `baseURL` on `config/production/config.yaml` before deploying your site.**
-
-**Please also remove the `-b {url}` from the following files if you're using this template.**
-
-- `.github/workflows/gh-pages.yml`
-
-This template supports GitHub Pages, Docker image, Netlify out-of-box. See also [Deployment](https://hbs.razonyang.com/v1/en/docs/deployment/) for getting more detail.
-
-The following parameters also need to be tweaked.
-
-- Replace the `utterances.*` or `giscus.*` with your own to get notified when someone comments.
-- Modify the `repo` to your own, or delete it if it's unused.
-- `contact.endpoint`.
-
-There are some hooks under the `layouts/partials/hooks` folder for showing how to use them, please feel free to delete them.
-
-## Documentations
-
-- [English](https://hbs.razonyang.com/v1/en/)
-- [简体中文](https://hbs.razonyang.com/v1/zh-hans/)
-- [繁體中文](https://hbs.razonyang.com/v1/zh-hant/)
+Nicolas Iriarte
