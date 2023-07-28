@@ -18,3 +18,12 @@ publish:
     #!/bin/bash
     git push public main
 
+# Serve locally
+serve:
+    #!/bin/bash
+    set -e
+    if [ ! -d "node_modules" ]; then
+      echo "No node_modules detected. Running `npm i`"
+      npm i
+    fi
+    hugo server
