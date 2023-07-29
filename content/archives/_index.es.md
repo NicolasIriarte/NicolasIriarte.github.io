@@ -1,5 +1,5 @@
 ---
-title: 归档
+title: Archivos
 menu:
   main:
     parent: references

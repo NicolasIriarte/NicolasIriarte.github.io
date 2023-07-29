@@ -1,5 +1,0 @@
-#+TITLE: Sobre mi
-#+description: "Sobre mi2"
-
-Hola! Soy Nico :)
-

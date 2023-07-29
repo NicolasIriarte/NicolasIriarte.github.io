@@ -1,10 +1,10 @@
 ---
-title: 分类
+title: Categorías
 menu:
   main:
     parent: references
     weight: 3
     params:
       icon: <i class="fas fa-fw fa-folder text-success"></i>
-      description: List of categories.
+      description: Lista de categorías.
 ---
