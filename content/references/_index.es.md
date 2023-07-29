@@ -1,9 +1,10 @@
 ---
-title: 博客
+title: Referencias
 menu:
   main:
-    identifier: blog
+    weight: 20
+    identifier: references
     params:
-      icon: '<i class="fas fa-fw fa-blog"></i>'
-      description: '博客菜单描述'
+      icon: '<i class="fas fa-fw fa-pen"></i>'
+      description: 'Agrupación de posts'
 ---

@@ -1,10 +1,10 @@
 ---
-title: 标签
+title: Etiquetas
 menu:
   main:
     parent: references
     weight: 4
     params:
       icon: <i class="fas fa-fw fa-tags"></i>
-      description: List of tags.
+      description: Lista de etiquetas.
 ---

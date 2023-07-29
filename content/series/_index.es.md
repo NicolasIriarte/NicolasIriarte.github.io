@@ -1,10 +1,10 @@
 ---
-title: 专栏
+title: Series
 menu:
   main:
     parent: references
     weight: 2
     params:
       icon: <i class="fas fa-fw fa-columns"></i>
-      description: List of series.
+      description: Lista de series.
 ---
