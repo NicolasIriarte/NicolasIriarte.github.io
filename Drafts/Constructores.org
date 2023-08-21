@@ -34,24 +34,24 @@ La implementación de nuestro constructor consta de dos partes:
 #+header: :main no
 #+header: :cmdline
 #+begin_src C++ :noweb strip-export
-    struct Person
+  struct Person
+  {
+    Person(std::string name, std::string last_name)
+      : // Comienzo de la lista de inicialización.
+      name_(name),
+      last_name_(last_name)
     {
-      Person(std::string name, std::string last_name)
-        : // Comienzo de la lista de inicialización.
-        name_(name),
-        last_name_(last_name)
-      {
-        if (name.size() < 3) {
-          throw std::runtime_error("Nombre demasiado corto");
-        }
+      if (name.size() < 3) {
+        throw std::runtime_error("Nombre demasiado corto");
       }
+    }
 
 
 
-    private:
-      std::string name_;
-      std::string last_name_;
-    };
+  private:
+    std::string name_;
+    std::string last_name_;
+  };
 #+end_src
 
 
