@@ -16,18 +16,23 @@ for spacecraft.
 
 **About Me:**
 
-I've always been fascinated by the world of technology, and my journey as a
-software developer has been a thrilling adventure so far. From writing complex
-algorithms to solving real-world problems, I find joy in every aspect of
-programming.
+Currently I’m working as Technical Leader in the aerospace industry for
+INVAP. I'm also pursuing a Master's in Embedded Systems, where I have been
+learning about Bare Metal (STM32 NUCLEO-F429ZI) and Processor Architecture (ARM
+Cortex-M4).
 
-**My Passion for Programming:**
+Right now, I'm working on my degree project titled: "Leon3 Microprocessor
+Emulator for Satellite Software Development and Simulators". In this project, I
+am developing an emulator for the Leon3 (GR712RC - Gaisler) microprocessor using
+the LLVM build tools framework. The development is being done in C++20, and it
+is intended that the developed emulator can be used in simulation environments
+such as SMP2 or similar.
 
-Among the many programming languages out there, C/C++ and Lua hold a special
-place in my heart. The elegance and power of C/C++ allow me to build robust and
-efficient solutions, while the versatility of Lua opens up exciting
-possibilities in game development and scripting. I'm always on the lookout for
-new challenges that let me explore the full potential of these languages.
+My interests and skills are:
+- Fluency in C/C++. Python and Lua to a lesser extent.
+- Programming in C for embedded systems.
+- Continuous development. (CI/CD).
+- English.
 
 **Why This Blog:**
 
