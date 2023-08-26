@@ -1,0 +1,90 @@
+---
+title: RAII
+linkTitle: RAII # The title of left navigation, optional.
+categories:
+  - C++ programming
+series:
+  - C++
+tags:
+  - C++
+  - Computer science
+  - Easy
+  - Basic knowledge
+---
+
+RAII, which stands for "/Resource Acquisition Is Initialization/," is a C++ technique for managing the lifecycle of typically limited resources (such as heap memory, file descriptors, threads, etc.).
+
+This technique involves reserving the resource during the object's [[../constructors][constructor]] and releasing it in the destructor. For example, let's imagine you want to model a variable-sized Flash memory. One possibility would be to allocate memory from the heap during its construction and free it during its destruction:
+
+#+name: Figure 1
+#+begin_src C++
+  struct FlashMemory {
+    FlashMemory(uint32_t size) { memory_ = new uint8_t[size]; }
+
+    ~FlashMemory() { delete[] memory_; }
+
+  private:
+    uint8_t *memory_;
+  };
+#+end_src
+
+RAII guarantees that as long as the object is instantiated, the resource will be accessible, and it defines a lifecycle for the resource that is tied to the lifecycle of the containing object. This simplifies manual management and relieves the developer from manual memory allocations or resource handling.
+
+It's advisable for the object that manages the resource, in this case =FlashMemory=, to have exposed methods for accessing it. For instance, in our case, methods to read/write the memory:
+
+#+name: Figure 2
+#+begin_src C++
+  struct FlashMemory {
+    FlashMemory(uint32_t size) : size_(size) { memory_ = new uint8_t[size]; }
+
+    ~FlashMemory() { delete[] memory_; }
+
+    /**
+     ,* Reads a byte from memory. Throws an exception if an invalid position is
+     ,* accessed.
+     ,*/
+    uint8_t ReadByte(uint32_t position) const {
+      if (position >= size_) {
+        throw std::runtime_error("Invalid position to Read!");
+      }
+      return memory_[position];
+    }
+
+    /**
+     ,* Writes a byte to memory. Throws an exception if an invalid position is
+     ,* accessed.
+     ,*/
+    void WriteByte(uint32_t position, uint8_t value) {
+      if (position >= size_) {
+        throw std::runtime_error("Invalid position to Write!");
+      }
+      memory_[position] = value;
+    }
+
+  private:
+    uint8_t *memory_;
+    uint32_t size_;
+  };
+#+end_src
+
+This way, the object and its lifetime can be managed transparently for the user.
+
+#+name: Figure 3
+#+begin_src C++
+  static constexpr uint32_t MEMORY_SIZE = 256 * 1024;
+
+  int main(int argc, char *argv[]) {
+    // This line invisibly allocates memory on the heap for the user.
+    FlashMemory flash(MEMORY_SIZE);
+
+    // Set the value 0x23 at byte 0x64
+    flash.WriteByte(0x64, 0x23);
+
+    std::cout << "The value at position 0x64 is: "
+              << static_cast<int>(flash.ReadByte(0x64)) << std::endl;
+
+    return 0; // At this point, the destructor of `FlashMemory` is called, and all
+              // its resources are automatically freed.
+  }
+#+end_src
+

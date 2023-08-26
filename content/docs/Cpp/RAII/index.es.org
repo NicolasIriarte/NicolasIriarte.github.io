@@ -1,0 +1,90 @@
+---
+title: RAII
+linkTitle: RAII # The title of left navigation, optional.
+categories:
+  - C++ programming
+series:
+  - C++
+tags:
+  - C++
+  - Computer science
+  - Easy
+  - Basic knowledge
+---
+
+RAII del inglés "/Resource Acquisition Is Initialization/" es una técnica de C++ para manejar el ciclo de vida de recursos típicamente limitados (memoria en el heap, descriptores de archivos, hilos de ejecución, etc).
+
+Dicha técnica consiste en reservar el recurso durante el [[../constructors][constructor]] del objeto, y su liberación en el destructor. Por ejemplo, imaginemos que se desea modelar una memoria =Flash= de tamaño variable, para ello, una posibilidad sería la de reservar memoria del heap en su construcción, para liberarla durante su destrucción:
+
+#+name: Figura 1
+#+begin_src C++
+  struct FlashMemory {
+    FlashMemory(uint32_t size) { memory_ = new uint8_t[size]; }
+
+    ~FlashMemory() { delete[] memory_; }
+
+  private:
+    uint8_t *memory_;
+  };
+#+end_src
+
+RAII garantiza que mientras el objeto esté instanciado, el recurso será accesible, y define un ciclo de vida del mismo acoplado al ciclo de vida del objeto que lo contiene. Esto facilita su manejo manual y libera al desarrollador que lo utilice de asignaciones manuales de memoria o del recurso.
+
+Es conveniente que el objeto que maneje al recurso, en nuestro caso =FlashMemory= tenga métodos expuestos para accederlo, por ejemplo, en nuestro caso, métodos para leer/escribir la memoria.
+
+#+name: Figura 2
+#+begin_src C++
+  struct FlashMemory {
+    FlashMemory(uint32_t size) : size_(size) { memory_ = new uint8_t[size]; }
+
+    ~FlashMemory() { delete[] memory_; }
+
+    /**
+     ,* Lee un Byte de memoria, si se trata de acceder fuera de la memoria se
+     ,* arroja una excepción.
+     ,*/
+    uint8_t ReadByte(uint32_t position) const {
+      if (position >= size_) {
+        throw std::runtime_error("Invalid position to Read!");
+      }
+      return memory_[position];
+    }
+
+    /**
+     ,* Escribe un Byte de memoria, si se trata de acceder fuera de la memoria se
+     ,* arroja una excepción.
+     ,*/
+    void WriteByte(uint32_t position, uint8_t value) {
+      if (position >= size_) {
+        throw std::runtime_error("Invalid position to Write!");
+      }
+      memory_[position] = value;
+    }
+
+  private:
+    uint8_t *memory_;
+    uint32_t size_;
+  };
+#+end_src
+
+De esta manera se puede manejar al objeto y su tiempo de vida de manera transparente para el usuario.
+
+#+name: Figura 3
+#+begin_src C++
+  static constexpr uint32_t MEMORY_SIZE = 256 * 1024;
+
+  int main(int argc, char *argv[]) {
+    // Esta linea reserva de manera invisible al usuario memoria en el heap.
+    FlashMemory flash(MEMORY_SIZE);
+
+    // En el byte 0x64 ponemos el valor 0x23
+    flash.WriteByte(0x64, 0x23);
+
+    std::cout << "La posición 0x64 contiene el valor: "
+              << static_cast<int>(flash.ReadByte(0x64)) << std::endl;
+
+    return 0; // En este punto el destructor de `FlashMemory` es llamado, y todos
+              // sus recursos liberados de manera automatica.
+  }
+#+end_src
+
