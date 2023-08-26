@@ -12,7 +12,7 @@ tags:
   - Basic knowledge
 ---
 
-En C++ constructores son un tipo de `método especial` de una clase, utilizado para inicializar dicha clase. En caso de que la clase no posea dicho método, el compilador normalmente dará uno por defecto, excepto en los siguientes casos:
+En C++ constructores son un tipo de =método especial= de una clase, utilizado para inicializar dicha clase. En caso de que la clase no posea dicho método, el compilador normalmente dará uno por defecto, excepto en los siguientes casos:
 
 1.  Que explicitamente se programe lo contrario.
 2.  Que exista algun atributo en la clase que no sea construible por defecto.
@@ -22,40 +22,37 @@ El constructor de la clase se identifica ya que es un método in valor de retorn
 
 Por ejemplo:
 
-```c++
-    struct Person
-    {
-      Person(std::string name, std::string last_name);
-    };
-```
+#+name: Codigo fuente 1
+#+begin_src C++
+  struct Person {
+    Person(std::string name, std::string last_name);
+  };
+#+end_src
 
-En este ejemplo, se define la estructura `Person`, dicha estructura tiene un unico constructor, el cual recive dos argumentos del tipo [std::string](https://en.cppreference.com/w/cpp/string/basic_string). Cabe aclarar que al definir un constructor para nuestra estructura, hemos eliminado el que nuestro compilador nos dá por defecto.
+
+En este ejemplo, se define la estructura =Person=, dicha estructura tiene un unico constructor, el cual recive dos argumentos del tipo [[https://en.cppreference.com/w/cpp/string/basic_string][std::string]]. Cabe aclarar que al definir un constructor para nuestra estructura, hemos eliminado el que nuestro compilador nos dá por defecto.
 
 La implementación de nuestro constructor consta de dos partes:
 
 1.  Una lista de inicialización, la cual es utilizada para asignar valor a atributos de la clase durante su creación, dicho código es ejecutado cuando la clase es creada.
 2.  Implementación del constructor, generalmente utilizado para realizar validación de datos, o alguna lógica especial que se necesite realizar al crear nuevas instancias de dicho objeto.
 
-```c++
-    struct Person
-    {
-      Person(std::string name, std::string last_name)
+#+name: Codigo fuente 2
+#+begin_src C++
+  struct Person {
+    Person(std::string name, std::string last_name)
         : // Comienzo de la lista de inicialización.
-        name_(name),
-        last_name_(last_name)
-      {
-        if (name.size() < 3) {
-          throw std::runtime_error("Nombre demasiado corto");
-        }
+          name_(name), last_name_(last_name) {
+      if (name.size() < 3) {
+        throw std::runtime_error("Nombre demasiado corto");
       }
+    }
 
-
-
-    private:
-      std::string name_;
-      std::string last_name_;
-    };
-```
+  private:
+    std::string name_;
+    std::string last_name_;
+  };
+#+end_src
 
 En el ejemplo provisto, utilizamos la lista de inicialización para asignar el nombre y apellido de la persona en la creación del objeto. Y dentro de la lógica del constructor, validamos que el nombre ingresado no sea menor de tres caracteres.
 

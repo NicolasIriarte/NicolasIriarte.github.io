@@ -12,7 +12,7 @@ tags:
   - Basic knowledge
 ---
 
-In C++, constructors are a type of `special method` in a class, used to initialize that class. If the class does not have such a method, the compiler will usually provide a default one, except in the following cases:
+In C++, constructors are a type of =special method= in a class, used to initialize that class. If the class does not have such a method, the compiler will usually provide a default one, except in the following cases:
 
 1. When it is explicitly programmed otherwise.
 2. When there is an attribute in the class that cannot be default-constructed.
@@ -22,38 +22,36 @@ The class constructor is identified as a method without a return value and has *
 
 For example:
 
-```c++
-    struct Person
-    {
-      Person(std::string name, std::string last_name);
-    };
-```
+#+name: Source Code 1
+#+begin_src C++
+  struct Person {
+    Person(std::string name, std::string last_name);
+  };
+#+end_src
 
-In this example, the `Person` struct is defined, and it has a single constructor that takes two arguments of type [std::string](https://en.cppreference.com/w/cpp/string/basic_string). It's important to note that by defining a constructor for our struct, we have overridden the default constructor provided by the compiler.
+In this example, the =Person= struct is defined, and it has a single constructor that takes two arguments of type [[https://en.cppreference.com/w/cpp/string/basic_string][std::string]]. It's important to note that by defining a constructor for our struct, we have overridden the default constructor provided by the compiler.
 
 The implementation of our constructor consists of two parts:
 
 1. An initialization list, which is used to assign values to class attributes during its creation. This code is executed when the class is being created.
 2. Implementation of the constructor itself, generally used to perform data validation or any special logic needed when creating new instances of the object.
 
-```c++
-    struct Person
-    {
-      Person(std::string name, std::string last_name)
+#+name: Source Code 2
+#+begin_src C++
+  struct Person {
+    Person(std::string name, std::string last_name)
         : // Start of the initialization list.
-        name_(name),
-        last_name_(last_name)
-      {
-        if (name.size() < 3) {
-          throw std::runtime_error("Name is too short");
-        }
+          name_(name), last_name_(last_name) {
+      if (name.size() < 3) {
+        throw std::runtime_error("Name is too short");
       }
+    }
 
-    private:
-      std::string name_;
-      std::string last_name_;
-    };
-```
+  private:
+    std::string name_;
+    std::string last_name_;
+  };
+#+end_src
 
 In the provided example, we use the initialization list to assign the name and last name of the person during the object's creation. And within the constructor's logic, we validate that the entered name is not less than three characters long.
 
