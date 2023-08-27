@@ -1,0 +1,28 @@
+---
+title: Presentación de tesis
+featured: true
+draft: false
+comment: true
+toc: true
+reward: true
+pinned: false
+carousel: false
+categories:
+  - C++ programming
+series:
+  - Thesis
+tags:
+  - C++
+  - Computer science
+  - LLVM
+---
+
+Recientemente he arrancado mi carrera de posgrado, /Carrera de Especialización en Sistemas Embebidos/ o ([[https://lse.posgrados.fi.uba.ar/posgrados/especializaciones/sistemas-embebidos][CESE]] para acortar). Para el segundo bimestre tocó seleccionar un tema de tesis, el cual está titulado como "Emulador de microprocesador Leon3 para desarrollo de Software satelital y simuladores".
+
+Para productos de ámbitos espaciales, tales como satélites, muchas veces es difícil, y en ocasiones imposible, representar escenarios realistas para pruebas de los elementos que lo componen. Ya sea por no poder generar las mismas condiciones ambientales, o por que la naturaleza de la maniobra que se busca replicar implicaría un daño a los equipos bajo revisión. Bajo este contexto, es común replicar susodichos elementos de manera programada, es decir, desarrollar los elementos con cierto grado de representación para que se comporten de la manera más representativa posible a su contraparte física. Dichos elementos se los llaman emulados o simulados. Uno de los componentes que se suele tener mayor interés en simular es el procesador de la computadora a bordo, el cúal se monta sobre el satélite real y ejecuta el software de vuelo.
+
+Cabe destacar, que hoy en día existen emuladores tanto open-source como privativos para distintos procesadores. Un ejemplo claro de emulador open-source es Qemu, el cual abarca un amplio abanico de microprocesadores, entre ellos, algunos que se pueden utilizar en el ámbito espacial.
+
+Cada caso de emulador, aunque solucionan el problema en cuestión, viene con sus respectivas desventajas. Por ejemplo, los emuladores open-source suelen divergir para ampliar el rango de procesadores soportados, generalmente disminuyendo su performance. Por otro lado, los emuladores privativos al no tener acceso al código muchas veces se vuelven difíciles de integrar, ya que no se tiene un conocimiento exacto sobre las limitaciones del mismo, y en general, difíciles de depurar el software que ejecutan.
+
+Bajo estas premisas se plantea crear un emulador de microprocesador [[https://www.esa.int/Enabling_Support/Space_Engineering_Technology/Onboard_Computers_and_Data_Handling/Microprocessors][Leon3]] para desarrollo de software satelital y simuladores. Al ser un desarrollo a medida, se tendrá la ventaja de la no-diversificación del procesador, es decir, estará únicamente orientado a un solo microprocesador. Esperando una ganancia en performance comparado con su contraparte open-source. Al mismo tiempo, se tendrá un conocimiento extenso del alcance y limitaciones de las capacidades del software en cuestión. Haciendo de esta manera, más simple la integración y depuración en su uso.

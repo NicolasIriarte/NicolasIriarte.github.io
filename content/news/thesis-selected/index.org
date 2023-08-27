@@ -1,0 +1,28 @@
+---
+title: Thesis presentation
+featured: true
+draft: false
+comment: true
+toc: true
+reward: true
+pinned: false
+carousel: false
+categories:
+  - C++ programming
+series:
+  - Thesis
+tags:
+  - C++
+  - Computer science
+  - LLVM
+---
+
+Recently, I have started my postgraduate studies in the "Specialization in Embedded Systems" program, abbreviated as [[https://lse.posgrados.fi.uba.ar/posgrados/especializaciones/sistemas-embebidos][CESE]]. For the second semester, I had to select a thesis topic, which is titled "Emulator of Leon3 Microprocessor for Satellite Software Development and Simulators."
+
+In the realm of space products, such as satellites, it is often difficult, and at times impossible, to recreate realistic scenarios for testing the components that constitute them. This could be due to the inability to replicate the same environmental conditions, or because attempting to replicate the intended maneuver could potentially damage the equipment under review. In such contexts, it is common to simulate these elements programmatically—that is, to develop elements with a certain degree of representation so that they behave as realistically as possible compared to their physical counterparts. These simulated elements are often referred to as emulated or simulated. One of the components that is of significant interest to simulate is the onboard computer processor, which is mounted on the actual satellite and runs the flight software.
+
+It's worth noting that there are both open-source and proprietary emulators available for various processors today. An evident example of an open-source emulator is Qemu, which covers a wide range of microprocessors, including some that can be used in the space domain.
+
+While each emulator addresses the problem at hand, they come with their respective drawbacks. For instance, open-source emulators tend to diverge in order to broaden the range of supported processors, which often results in decreased performance. On the other hand, proprietary emulators, due to their lack of access to the source code, can be challenging to integrate as there is limited knowledge about their limitations, and debugging the software they execute can be difficult.
+
+With these premises in mind, the idea is to develop an emulator for the [[https://www.esa.int/Enabling_Support/Space_Engineering_Technology/Onboard_Computers_and_Data_Handling/Microprocessors][Leon3 microprocessor]] specifically designed for satellite software development and simulators. Since this is a custom development, there will be an advantage in terms of processor specialization, focusing solely on a single microprocessor. This is expected to result in improved performance compared to open-source alternatives. Additionally, there will be an extensive understanding of the scope and limitations of the software's capabilities. This, in turn, will simplify the integration and debugging processes in its usage.
