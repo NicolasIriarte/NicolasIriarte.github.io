@@ -8,8 +8,8 @@ series:
   - C++
 tags:
   - C++
-  -Computer science
-  -Easy
+  - Computer science
+  - Easy
   - Basic knowledge
 ---
 
