@@ -13,14 +13,9 @@ tags:
   - Basic knowledge
 ---
 
-Iniciar en el mundo de la programación nunca ha sido más sencillo,
-tenémos documentación prácticamente infinita, tutoriales online, y foros
-altamente activos para plantear y resolver nuestras dudas.
+Iniciar en el mundo de la programación nunca ha sido más sencillo, tenémos documentación prácticamente infinita, tutoriales online, y foros altamente activos para plantear y resolver nuestras dudas.
 
-Aun así, empezar en el mundo de C++ no es sencillo, la barrera de
-entrada en relativamente alta, y es necesario un tutorial o guia
-suficientemente detallada para cubrir las dudas que pueden surgir para
-alguien que recién está arrancando en este maravilloso mundo.
+Aun así, empezar en el mundo de C++ no es sencillo, la barrera de entrada en relativamente alta, y es necesario un tutorial o guia suficientemente detallada para cubrir las dudas que pueden surgir para alguien que recién está arrancando en este maravilloso mundo.
 
 Por tal motivo, este post busca ser una guía con simples objetivos:
 1. Está orientada a lectores sin experiencia alguna en la programación.

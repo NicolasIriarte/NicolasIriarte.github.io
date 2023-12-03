@@ -3,14 +3,14 @@ title: Hello World!
 linkTitle: Hello world! # The title of left navigation, optional.
 navWeight: 10000 # Upper weight gets higher precedence, optional.
 categories:
-   - C++ programming
+  - C++ programming
 series:
-   - C++
+  - C++
 tags:
-   - C++
-   -Computer science
-   -Easy
-   - Basic knowledge
+  - C++
+  -Computer science
+  -Easy
+  - Basic knowledge
 ---
 
 Getting started in the world of programming has never been easier, we have practically endless documentation, online tutorials, and highly active forums to ask and resolve our doubts.
