@@ -1,0 +1,107 @@
+---
+title: Hola Mundo!
+linkTitle: Hello world! # The title of left navigation, optional.
+navWeight: 10000 # Upper weight gets higher precedence, optional.
+categories:
+  - C++ programming
+series:
+  - C++
+tags:
+  - C++
+  - Computer science
+  - Easy
+  - Basic knowledge
+---
+
+Iniciar en el mundo de la programación nunca ha sido más sencillo,
+tenémos documentación prácticamente infinita, tutoriales online, y foros
+altamente activos para plantear y resolver nuestras dudas.
+
+Aun así, empezar en el mundo de C++ no es sencillo, la barrera de
+entrada en relativamente alta, y es necesario un tutorial o guia
+suficientemente detallada para cubrir las dudas que pueden surgir para
+alguien que recién está arrancando en este maravilloso mundo.
+
+Por tal motivo, este post busca ser una guía con simples objetivos:
+1. Está orientada a lectores sin experiencia alguna en la programación.
+2. Ser lo suficientemente extensiva en los pasos, pero sin entrar en
+   demasiados detalles técnicos.
+
+* Las bases
+
+** ¿Qué es C++?
+
+C++ es un lenguaje de programación *compilado*, que se caracteriza por poseer acceso a primitivas de *bajo nivel* y abstracciones de *alto nivel*. Este lenguaje es normalmente utilizado en ambientes donde el rendimiento es un factor clave del sistema.
+
+Un lenguaje de programación *compilado* significa que su código debe ser traducido a un ejecutable (O código máquina) antes de su ejecutado.
+
+
+#+name: Compilation process
+#+begin_src plantuml :file Compilation.png :exports results
+  User --> (Files.cpp)
+  User --> (Files.hpp)
+
+  (Files.cpp) --> Compiler
+  (Files.hpp) --> Compiler
+
+  cloud Compiler {
+    (Magic)
+  }
+
+  Compiler --> [bin.out]
+#+end_src
+
+#+RESULTS: Compilation process
+[[file:Compilation.png]]
+
+
+En la figura anterior, se muestra el proceso de compilación de un programa en C++. El usuario escribe el código en archivos con extensión =.cpp= y =.hpp=, los cuales son procesados por el compilador, el cual genera un ejecutable con el nombre =bin.out=.
+
+
+** ¿Qué es un compilador?
+
+Un compilador es un programa que traduce el código fuente de un programa a un ejecutable. En el caso de C++, existen varios compiladores, siendo los más populares:
+
+- [[https://gcc.gnu.org/][GCC]]: El compilador de GNU.
+- [[https://clang.llvm.org/][Clang]]: El compilador de LLVM.
+- [[https://visualstudio.microsoft.com/es/vs/features/cplusplus/][MSVC]]: El compilador de Microsoft Visual Studio.
+
+
+** Nuestro primer programa
+
+Para nuestro primer programa, vamos a utilizar el compilador GCC, el cual es de código abierto y se encuentra disponible en la mayoría de los sistemas operativos. El proceso de instalación de GCC depende del sistema operativo que estemos utilizando, por lo que no se detallará en este post.
+
+
+Una vez instalado GCC, vamos a crear nuestro primer programa. Para ello, vamos a crear un archivo con extensión =.cpp=, el cual contendrá el siguiente código:
+
+
+#+begin_src cpp
+  #include <iostream>
+
+  int main() {
+    std::cout << "Hola mundo!" << std::endl;
+    return 0;
+  }
+#+end_src
+
+Este programa imprime en pantalla el texto =Hola mundo!=. Para compilarlo, debemos ejecutar el siguiente comando:
+
+#+begin_src bash
+  g++ -o bin.out main.cpp
+#+end_src
+
+Este comando ejecuta el compilador =g++=, el cual recibe como argumento el nombre del archivo que queremos compilar (=main.cpp=) y el nombre del archivo de salida (=bin.out=).
+
+Una vez compilado, podemos ejecutar el programa con el siguiente comando:
+
+#+begin_src bash
+  ./bin.out
+#+end_src
+
+Una vez ejecutado, veremos en pantalla el texto =Hola mundo!=.
+
+** Conclusiones
+
+En este post, hemos visto los conceptos básicos de C++, y hemos creado nuestro primer programa. Con dichos conocimientos poseemos una base para crear cualquier otro programa, compilarlo y poder ver su resultado.
+
+

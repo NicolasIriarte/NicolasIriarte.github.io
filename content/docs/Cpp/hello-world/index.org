@@ -1,0 +1,99 @@
+---
+title: Hello World!
+linkTitle: Hello world! # The title of left navigation, optional.
+navWeight: 10000 # Upper weight gets higher precedence, optional.
+categories:
+   - C++ programming
+series:
+   - C++
+tags:
+   - C++
+   -Computer science
+   -Easy
+   - Basic knowledge
+---
+
+Getting started in the world of programming has never been easier, we have practically endless documentation, online tutorials, and highly active forums to ask and resolve our doubts.
+
+Even so, starting in the world of C++ is not easy, the entry barrier is relatively high, and a sufficiently detailed tutorial or guide is necessary to cover the doubts that may arise to someone who is just starting out in this wonderful world.
+
+For this reason, this post seeks to be a guide with simple objectives:
+1. It is aimed at readers without any programming experience.
+2. Be extensive enough in the steps, but without going into too many technical details.
+
+* The bases
+
+** What is C++?
+
+C++ is a *compiled* programming language, characterized by having access to *low-level* primitives and *high-level* abstractions. This language is normally used in environments where performance is a key factor of the system.
+
+A *compiled* programming language means that its code must be translated into an executable (machine code) before it is executed.
+
+
+#+name: Compilation process
+#+begin_src plantuml :file Compilation.png :exports results
+   User --> (Files.cpp)
+   User --> (Files.hpp)
+
+   (Files.cpp) --> Compiler
+   (Files.hpp) --> Compiler
+
+   cloud Compiler {
+     (Magic)
+   }
+
+   Compiler --> [bin.out]
+#+end_src
+
+#+RESULTS: Compilation process
+[[file:Compilation.png]]
+
+
+The figure above shows the compilation process of a C++ program. The user writes the code in files with extension =.cpp= and =.hpp=, which are processed by the compiler, which generates an executable with the name =bin.out=.
+
+
+** What is a compiler?
+
+A compiler is a program that translates the source code of a program into an executable. In the case of C++, there are several compilers, the most popular being:
+
+- [[https://gcc.gnu.org/][GCC]]: The GNU compiler.
+- [[https://clang.llvm.org/][Clang]]: The LLVM compiler.
+- [[https://visualstudio.microsoft.com/es/vs/features/cplusplus/][MSVC]]: The Microsoft Visual Studio compiler.
+
+
+** Our first program
+
+For our first program, we are going to use the GCC compiler, which is open source and available on most operating systems. The GCC installation process depends on the operating system we are using, so it will not be detailed in this post.
+
+
+Once GCC is installed, let's create our first program. To do this, we are going to create a file with extension =.cpp=, which will contain the following code:
+
+
+#+begin_src cpp
+   #include <iostream>
+
+   int main() {
+     std::cout << "Hello world!" << std::endl;
+     return 0;
+   }
+#+end_src
+
+This program prints the text =Hello world!= on the screen. To compile it, we must execute the following command:
+
+#+begin_src bash
+   g++ -o bin.out main.cpp
+#+end_src
+
+This command executes the =g++= compiler, which receives as arguments the name of the file we want to compile (=main.cpp=) and the name of the output file (=bin.out=).
+
+Once compiled, we can run the program with the following command:
+
+#+begin_src bash
+   ./bin.out
+#+end_src
+
+Once executed, we will see the text =Hello world!= on the screen.
+
+** Conclusions
+
+In this post, we have seen the basic concepts of C++, and we have created our first program. With this knowledge we have a basis to create any other program, compile it and be able to see its result.
